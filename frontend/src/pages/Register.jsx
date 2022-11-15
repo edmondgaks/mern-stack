@@ -2,14 +2,19 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import { FaUser } from 'react-icons/fa';
 function Register() {
-    const formData = useState({
+        const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
         password2: ''
     })
     const { name, email, password, password2 } = formData
-    const onChange = () => {}
+    const onChange = (e) => {
+        setFormData((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }))
+    }
     const onSubmit = (e) => {
         e.preventDefault();
     }
